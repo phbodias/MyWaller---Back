@@ -19,5 +19,5 @@ app.post('/entrada', postEntrada);
 // Rota para logout
 app.get('/logout', logout);
 
-const PORT = process.env.PORT || 5008;
-app.listen(PORT, () => console.log('Servidor rodou deboas'));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
