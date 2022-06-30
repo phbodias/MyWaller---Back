@@ -1,6 +1,8 @@
+import chalk from 'chalk';
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { loginUser, createUser } from './controllers/authController.js';
 
 dotenv.config();
 
@@ -11,7 +13,7 @@ app.use(express.json(), cors());
 app.post('/login', loginUser);
 app.post('/cadastrar', createUser);
 
-// Rota para exibir as entradas/saídas do usuário
+/* // Rota para exibir as entradas/saídas do usuário
 app.get('/historico', exibeHistorico)
 
 // Rotas para cadastrar novas saídas/entradas do usuário
@@ -19,7 +21,9 @@ app.post('/saida', postSaida);
 app.post('/entrada', postEntrada);
 
 // Rota para logout
-app.get('/logout', logout);
+app.get('/logout', logout); */
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+app.listen(PORT, () => console.log(
+    chalk.bold.yellow(`Servidor rodando na porta ${PORT}`)
+    ));
