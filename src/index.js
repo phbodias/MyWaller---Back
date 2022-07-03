@@ -26,4 +26,4 @@ app.get('/logout', logout); */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(
     chalk.bold.yellow(`Servidor rodando na porta ${PORT}`)
-    ));
+));
