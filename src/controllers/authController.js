@@ -20,7 +20,7 @@ export async function createUser(req, res) {
   const senhaCriptografada = bcrypt.hashSync(usuario.password, 10);
 
   await db.collection('usuarios').insertOne({ ...usuario, password: senhaCriptografada });
-  res.status(201).send('Usuário criado com sucesso');
+  res.status(201).send('Usuário criado com sucesso!');
 }
 
 export async function loginUser(req, res) {
