@@ -1,5 +1,6 @@
 import { db, objectId } from '../dbStrategy/mongo.js';
 import { postSchema } from '../schemas/schemas.js';
+import dayjs from "dayjs";
 
 export async function getPosts(req, res) {
   const session = res.locals.session;
@@ -22,6 +23,8 @@ export async function createPost(req, res) {
     return res.sendStatus(422);
   }
 
-  await db.collection('posts').insertOne({ ...post, userId: session.userId });
+  const date = dayjs().locale("pt-br").format("DD/MM");
+
+  await db.collection('posts').insertOne({ ...post, userId: session.userId, date });
   res.status(201).send('Post criado com sucesso');
 }
