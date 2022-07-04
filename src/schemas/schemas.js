@@ -14,5 +14,5 @@ export const cadastroSchema = joi.object({
 export const postSchema = joi.object({
     decricao: joi.string().required(),
     tipo: joi.string().required(),
-    valor: joi.string().required()
+    valor: joi.number().required()
 });
