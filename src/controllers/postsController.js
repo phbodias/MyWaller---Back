@@ -1,5 +1,4 @@
 import { db, objectId } from '../dbStrategy/mongo.js';
-import joi from 'joi';
 import { postSchema } from '../schemas/schemas.js';
 
 export async function getPosts(req, res) {
