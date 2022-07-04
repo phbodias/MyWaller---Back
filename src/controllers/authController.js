@@ -1,18 +1,12 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
 import { db } from '../dbStrategy/mongo.js';
-import joi from 'joi';
+import { cadastroSchema, loginSchema } from '../schemas/schemas.js';
 
 export async function createUser(req, res) {
   const usuario = req.body;
 
-  const usuarioSchema = joi.object({
-    name: joi.string().required(),
-    email: joi.string().email().required(),
-    password: joi.string().required()
-  });
-
-  const { error } = usuarioSchema.validate(usuario);
+  const { error } = cadastroSchema.validate(usuario);
 
   if (error) {
     return res.sendStatus(422);
@@ -27,12 +21,7 @@ export async function createUser(req, res) {
 export async function loginUser(req, res) {
   const usuario = req.body;
 
-  const usuarioSchema = joi.object({
-    email: joi.string().email().required(),
-    password: joi.string().required()
-  });
-
-  const { error } = usuarioSchema.validate(usuario);
+  const { error } = loginSchema.validate(usuario);
 
   if (error) {
     return res.sendStatus(422);
