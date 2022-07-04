@@ -6,6 +6,11 @@ import { cadastroSchema, loginSchema } from '../schemas/schemas.js';
 export async function createUser(req, res) {
   const usuario = req.body;
 
+  const userCadastrado = await db.collection('usuarios').findOne({ email: usuario.email });
+  if (userCadastrado){
+    return res.sendStatus(422).send("Email já cadastrado!")
+  }
+
   const { error } = cadastroSchema.validate(usuario);
 
   if (error) {
