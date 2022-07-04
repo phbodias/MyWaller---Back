@@ -20,7 +20,7 @@ export async function createPost(req, res) {
   const { error } = postSchema.validate(post);
 
   if (error) {
-    return res.status(422).send(error);
+    return res.status(422).send("Erro na validação");
   }
 
   const date = dayjs().locale("pt-br").format("DD/MM");
