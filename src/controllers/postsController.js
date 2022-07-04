@@ -26,5 +26,5 @@ export async function createPost(req, res) {
   const date = dayjs().locale("pt-br").format("DD/MM");
 
   await db.collection('posts').insertOne({ ...post, userId: session.userId, date });
-  res.status(201).send('Post criado com sucesso');
+  res.status(201).send('Post criado com sucesso!');
 }
