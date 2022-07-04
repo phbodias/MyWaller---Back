@@ -20,7 +20,7 @@ export async function createPost(req, res) {
   const { error } = postSchema.validate(post);
 
   if (error) {
-    return res.sendStatus(422);
+    return res.sendStatus("erro no schema");
   }
 
   const date = dayjs().locale("pt-br").format("DD/MM");
