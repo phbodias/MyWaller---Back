@@ -1,4 +1,3 @@
 node_modules
 .wakatime-project
-.env
 userController.js
