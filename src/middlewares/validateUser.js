@@ -7,7 +7,7 @@ async function validateUser(req, res, next) {
   const session = await db.collection('sessoes').findOne({ token });
 
   if (!session) {
-    return res.sendStatus(token);
+    return res.sendStatus(409);
   }
 
   res.locals.session = session;
