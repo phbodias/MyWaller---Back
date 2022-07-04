@@ -23,7 +23,7 @@ app.post('/entrada', postEntrada);
 // Rota para logout
 app.get('/logout', logout); */
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(
-    chalk.bold.yellow(`Servidor rodando na porta ${PORT}`)
-));
+const server = app.listen(process.env.PORT || 5000, () => {
+    const port = server.address().port;
+    console.log(`Express is working on port ${port}`);
+});
